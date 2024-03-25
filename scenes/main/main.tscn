@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd7ro1njm2bk2"]
+
+[ext_resource type="PackedScene" uid="uid://b30mx0vqbyrrh" path="res://scenes/deck/deck.tscn" id="1_gnr5k"]
+[ext_resource type="PackedScene" uid="uid://dctwefpwcw3lh" path="res://scenes/board/board.tscn" id="1_wi2rr"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="enemySide" type="HBoxContainer" parent="Screen"]
+custom_minimum_size = Vector2(1920, 96)
+layout_mode = 2
+
+[node name="Deck" parent="Screen/enemySide" instance=ExtResource("1_gnr5k")]
+layout_mode = 2
+
+[node name="MapContainer" type="HBoxContainer" parent="Screen"]
+custom_minimum_size = Vector2(1920, 888)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Board" parent="Screen/MapContainer" instance=ExtResource("1_wi2rr")]
+layout_mode = 2
+
+[node name="playerSide" type="HBoxContainer" parent="Screen"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="Deck" parent="Screen/playerSide" instance=ExtResource("1_gnr5k")]
+layout_mode = 2
